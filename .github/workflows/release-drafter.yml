@@ -16,8 +16,10 @@ jobs:
     steps:
       - name: Generate version
         id: version
+        env: 
+          TZ: "Asia/Tokyo"
         run: |
-          TZ=JST-9 export VERSION=$(date "+%Y%m%d-%H%M%S")
+          export VERSION=$(date "+%Y%m%d-%H%M%S")
           echo ::set-output name=version::${VERSION}
           echo "Version set to ${VERSION}"
 
